@@ -20,4 +20,4 @@ from genc.python import interop
 from genc.python import runtime
 # pylint: enable=g-importing-member
 
-del python  # pylint: disable=undefined-variable
+del python  # pylint: disable=undefined-variable  # pyrefly: ignore[unbound-name]

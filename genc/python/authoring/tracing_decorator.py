@@ -61,7 +61,7 @@ def traced_computation(fn):
             local=[
                 pb.Block.Local(name=k, value=v) for k, v in my_locals.items()
             ],
-            result=result,
+            result=result,  # pyrefly: ignore[bad-argument-type]
         )
     )
   portable_ir = constructor_bindings.create_lambda('arg', result)

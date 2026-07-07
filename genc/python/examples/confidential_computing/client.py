@@ -36,8 +36,8 @@ def main(argv: Sequence[str]) -> None:
   # Computation to be executed in a secure enclave on Confidential Computing.
   @genc.authoring.traced_computation
   def foo(x):
-    prompt_template = genc.authoring.prompt_template["Tell me about {topic}"]
-    model_inference = genc.authoring.model_inference_with_config[{
+    prompt_template = genc.authoring.prompt_template["Tell me about {topic}"]  # pyrefly: ignore[missing-attribute]
+    model_inference = genc.authoring.model_inference_with_config[{  # pyrefly: ignore[missing-attribute]
         "model_uri": "/device/gemma",
         "model_config": {"model_path": "/gemma-2b-it-q4_k_m.gguf"}}]
     return model_inference(prompt_template(x))
@@ -46,7 +46,7 @@ def main(argv: Sequence[str]) -> None:
   @genc.authoring.traced_computation
   def bar(x):
     backend = {"server_address": ADDRESS.value, "image_digest": DIGEST.value}
-    return genc.authoring.confidential_computation[foo, backend](x)
+    return genc.authoring.confidential_computation[foo, backend](x)  # pyrefly: ignore[missing-attribute]
 
   result = bar("scuba diving")
   print(result)

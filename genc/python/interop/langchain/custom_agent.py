@@ -35,7 +35,7 @@ class CustomAgent(langchain.agents.agent.Agent):
   """The output parser to use in the agent."""
 
   # Part of Langchain's Agent API.
-  allowed_tools: List[str] = None
+  allowed_tools: List[str] = None  # pyrefly: ignore[bad-assignment]
   """The names of the tools that are allowed to be used."""
 
   # List of tools to use with this Agent.
@@ -85,7 +85,7 @@ class CustomAgent(langchain.agents.agent.Agent):
     """Validate that appropriate tools are passed in."""
     pass
 
-  @pydantic_v1.root_validator()
-  def validate_prompt(cls, values: Dict[Any, Any]) -> Dict[Any, Any]:  # pylint: disable=no-self-argument
+  @pydantic_v1.root_validator()  # pyrefly: ignore[no-matching-overload]
+  def validate_prompt(cls, values: Dict[Any, Any]) -> Dict[Any, Any]:  # pylint: disable=no-self-argument  # pyrefly: ignore[bad-override]
     """Validate that prompt matches format."""
     return values

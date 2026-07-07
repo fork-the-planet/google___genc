@@ -47,6 +47,7 @@ def main(argv: Sequence[str]) -> None:
 
   request = pb.Value()
   request.str = (
+      # pyrefly: ignore[bad-assignment]
       b'{"model": "gpt-3.5-turbo", "messages": [{"role": "user", "content":'
       b' "Can you help me know things to do in San Fransisco"}]}'
   )
