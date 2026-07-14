@@ -31,10 +31,6 @@ cc_library(
     name = "open_ai_client_jni",
     srcs = ["open_ai_client_jni.cc"],
     hdrs = ["open_ai_client_jni.h"],
-    copts = [
-        "-Wno-write-strings",  # The generated JNI header fails this.
-        "-Wno-writable-strings",  # The generated JNI header fails this.
-    ],
     deps = [
         "//genc/java/src/jni:copy_jni_hdr_lib",
         "//genc/java/src/jni:jni_utils",
